@@ -9,6 +9,9 @@
 
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  mounted(){
+     $("#the_link a").show();
+    }
 }
 </script>
