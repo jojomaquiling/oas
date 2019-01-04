@@ -17,16 +17,36 @@ import Sample1 from '@/components/Sample1.vue'
 import Contacts from '@/components/Contacts.vue'
 import CostCenters from '@/components/CostCenters.vue'
 import ChartOfAccounts from '@/components/ChartOfAccounts.vue'
+import Dashboard2 from '@/components/Dashboard2.vue'
+import VueLocalStorage from 'vue-localstorage'
 
+
+Vue.use(VueLocalStorage)
 Vue.use(Plugin)
 Vue.use(Router)
+
+Vue.mixin({
+  data: function() {
+    return {
+      get api_url() {
+		  if (window.webpackHotUpdate) {
+			return "http://localhost:8000/api/";
+		  } else {
+			  return "http://localhost:8001/api/";
+		  }
+        
+      }
+    }
+  }
+})
+
 
 const router = new Router({
   routes: [
     {
       path: '/',
       name: 'Login',
-      component: Login
+      component: Login      
     },
     {
       path: '/login.html',
@@ -41,66 +61,47 @@ const router = new Router({
     {
       path: '/',
       name: 'DashboardReal',
-      component: DashboardReal,
+      meta: {
+		  requiresAuth: true
+		},
+      component: Dashboard2,
       children: [{
       	path: 'dashboard',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
-                content:RealContent,
-                menuheader:MenuHeader,
-                titlepart:TitlePart,
+                content:Contacts,
             }},
 		
 		{
       	path: 'index.html',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
                 content:RealContent,
-                menuheader:MenuHeader,
-                titlepart:TitlePart,
+
             }},
 		{
       	path: '',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
                 content:RealContent,
-                menuheader:MenuHeader,
-                titlepart:TitlePart,
             }},
 		{
       	path: 'sample1',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
                 content:Sample1,
-                menuheader:MenuHeader,
             }},            
 		{
       	path: 'contacts',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
                 content:Contacts,
-                menuheader:MenuHeader,
             }},            
 		{
       	path: 'costcenters',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
                 content:CostCenters,
-                menuheader:MenuHeader,
             }},            
 		{
       	path: 'chartofaccounts',
             components: {
-                profile: Profile,
-                realmenu:RealMenu,
                 content:ChartOfAccounts,
-                menuheader:MenuHeader,
+
             }},            
   ]}
   ],
@@ -108,6 +109,21 @@ const router = new Router({
 })
 
 
-//router.replace({ path: '*', redirect: '/' })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    console.log(Vue.localStorage.get("token_"));
+    if (!Vue.localStorage.get("token_")) {
+      next({ name: 'Login' })
+    } else {
+      next() // go to wherever I'm going
+    }
+  } else {
+    next() // does not require auth, make sure to always call next()!
+  }
+})
+
+
 export default router
 

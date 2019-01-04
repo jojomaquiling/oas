@@ -38,7 +38,10 @@ export default {
     return {
       title1: 'Accounting System'
     }
+  },
+  mounted(){
+	  $("a[href^='sample1']").parent().addClass("active")
   }
-  
+    
 }
 </script>

@@ -5,10 +5,10 @@
                     <h2>{{title1}}</h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">This is</a>
+                            <a href="index.html">Home</a>
                         </li>
                         <li class="active">
-                            <strong>Breadcrumb</strong>
+                            <strong>Chart Of Accounts</strong>
                         </li>
                     </ol>
                 </div>
@@ -38,6 +38,9 @@ export default {
     return {
       title1: 'ChartOfAccounts'
     }
+  },
+  mounted(){
+	  $("a[href^='chartofaccounts']").parent().addClass("active")
   }
   
 }

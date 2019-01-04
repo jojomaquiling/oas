@@ -11,9 +11,9 @@
                 <li>
                     <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Ledgers</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="cv">Check Voucher Manager</a></li>
-                        <li><a href="je">Journal Entry Manager</a></li>
-                        <li><a href="je">Inventory Manager</a></li>
+                        <li><a href="#">Check Voucher Manager</a></li>
+                        <li><a href="#">Journal Entry Manager</a></li>
+                        <li><a href="#">Inventory Manager</a></li>
                     </ul>
                 </li>            
                
