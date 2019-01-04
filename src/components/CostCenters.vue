@@ -33,10 +33,10 @@
 </template>
 <script>
 export default {
-  name: 'RealContent',
+  name: 'CostCenters',
   data: function () {
     return {
-      title1: 'Content1'
+      title1: 'CostCenters'
     }
   }
   

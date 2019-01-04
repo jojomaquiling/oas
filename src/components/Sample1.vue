@@ -2,7 +2,7 @@
 <fragment>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-sm-4">
-                    <h2>This is main title</h2>
+                    <h2>{{title1}}</h2>
                     <ol class="breadcrumb">
                         <li>
                             <a href="index.html">This is</a>
@@ -21,7 +21,7 @@
 
             <div class="wrapper wrapper-content">
                 <div class="middle-box text-center animated fadeInRightBig">
-                    <h3 class="font-bold">This is page content</h3>
+                    <h3 class="font-bold">{{title1}}</h3>
                     <div class="error-desc">
                         You can create here any grid layout you want. And any variation layout you imagine:) Check out
                         main dashboard and other site. It use many different layout.
@@ -34,6 +34,11 @@
 <script>
 export default {
   name: 'Sample1',
+  data: function () {
+    return {
+      title1: 'Accounting System'
+    }
+  }
   
 }
 </script>

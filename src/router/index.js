@@ -14,31 +14,29 @@ import RealHeader from '@/components/RealHeader.vue'
 import MenuHeader from '@/components/MenuHeader.vue'
 import TitlePart from '@/components/TitlePart.vue'
 import Sample1 from '@/components/Sample1.vue'
+import Contacts from '@/components/Contacts.vue'
+import CostCenters from '@/components/CostCenters.vue'
+import ChartOfAccounts from '@/components/ChartOfAccounts.vue'
 
 Vue.use(Plugin)
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
-      path: '/login',
+      path: '/',
       name: 'Login',
       component: Login
     },
     {
-      path: '/about',
-      name: 'About',
-      component: About
+      path: '/login.html',
+      name: 'Login2',
+      component: Login
     },
     {
-      path: '/coins/:id',
-      name: 'Coins',
-      component: Coins
-    },
-    {
-      path: '/fakedashboard',
-      name: 'Dashboard',
-      component: Dashboard
+      path: '/login',
+      name: 'Login3',
+      component: Login
     },
     {
       path: '/',
@@ -46,6 +44,25 @@ export default new Router({
       component: DashboardReal,
       children: [{
       	path: 'dashboard',
+            components: {
+                profile: Profile,
+                realmenu:RealMenu,
+                content:RealContent,
+                menuheader:MenuHeader,
+                titlepart:TitlePart,
+            }},
+		
+		{
+      	path: 'index.html',
+            components: {
+                profile: Profile,
+                realmenu:RealMenu,
+                content:RealContent,
+                menuheader:MenuHeader,
+                titlepart:TitlePart,
+            }},
+		{
+      	path: '',
             components: {
                 profile: Profile,
                 realmenu:RealMenu,
@@ -61,9 +78,36 @@ export default new Router({
                 content:Sample1,
                 menuheader:MenuHeader,
             }},            
-            
-            
-			],
-        },    
-  ]
+		{
+      	path: 'contacts',
+            components: {
+                profile: Profile,
+                realmenu:RealMenu,
+                content:Contacts,
+                menuheader:MenuHeader,
+            }},            
+		{
+      	path: 'costcenters',
+            components: {
+                profile: Profile,
+                realmenu:RealMenu,
+                content:CostCenters,
+                menuheader:MenuHeader,
+            }},            
+		{
+      	path: 'chartofaccounts',
+            components: {
+                profile: Profile,
+                realmenu:RealMenu,
+                content:ChartOfAccounts,
+                menuheader:MenuHeader,
+            }},            
+  ]}
+  ],
+ mode: 'history',  
 })
+
+
+//router.replace({ path: '*', redirect: '/' })
+export default router
+

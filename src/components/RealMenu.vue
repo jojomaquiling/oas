@@ -1,25 +1,83 @@
 <template>
 <fragment>
                 <li class="active">
-                    <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-database"></i> <span class="nav-label">File</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="search_results.html">Search results</a></li>
-                        <li><a href="lockscreen.html">Lockscreen</a></li>
-                        <li><a href="invoice.html">Invoice</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="login_two_columns.html">Login v.2</a></li>
-                        <li><a href="forgot_password.html">Forget password</a></li>
-                        <li><a href="register.html">Register</a></li>
-                        <li><a href="404.html">404 Page</a></li>
-                        <li><a href="500.html">500 Page</a></li>
-                        <li class="active"><a href="empty_page.html">Empty page</a></li>
+                        <li><a href="contacts">Contacts</a></li>
+                        <li><a href="costcenters">Cost Centers</a></li>
+                        <li><a href="chartofaccounts">Chart of Accounts</a></li>
                     </ul>
                 </li>
-            
+                <li>
+                    <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Ledgers</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="cv">Check Voucher Manager</a></li>
+                        <li><a href="je">Journal Entry Manager</a></li>
+                        <li><a href="je">Inventory Manager</a></li>
+                    </ul>
+                </li>            
+               
+				<li>
+                    <a href="#"><i class="fa fa-print"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="#">Listings<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="#">AR </a>
+                                </li>
+                                <li>
+                                    <a href="#">AR Per Type</a>
+                                </li>
+                                <li>
+                                    <a href="#">Accts. Transaction </a>
+                                </li>
+                                <li>
+                                    <a href="#">Disbursement Book</a>
+                                </li>
+                                <li>
+                                    <a href="#">Journal Book</a>
+                                </li>
+                                <li>
+                                    <a href="#">Aging of Accounts</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Statements<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="#">Income from Operation </a>
+                                </li>
+                                <li>
+                                    <a href="#">Trial Balance</a>
+                                </li>
+                                <li>
+                                    <a href="#">Financial Condition</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>                
+                
+                        
 </fragment>             
 </template>
 <script>
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
 export default {
-  name: 'RealMenu',
+  name: 'RealMenu',   
+  mounted(){
+	this.currentRoute();
+  },
+  methods:{
+	currentRoute:function(){
+		console.log(this.$route.name);
+	}
+  }
 }
 </script>

@@ -1,11 +1,7 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
 Vue.config.productionTip = false
-
 
 require('@/assets/css/bootstrap.min.css')
 require('@/assets/font-awesome/css/font-awesome.css')
@@ -36,7 +32,7 @@ new Vue({
 
   methods:{
       changeBodyClass(){
-            if (this.$route.name == "Login") {
+            if ((this.$route.name == "Login") || (this.$route.name == "Login2") || (this.$route.name == "Login3")) {
                 $("body").addClass("gray-bg");
             } else {
                 $("body").removeClass("gray-bg");

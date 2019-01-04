@@ -32,7 +32,9 @@
                         <p class="text-muted text-center">
                            &nbsp;
                         </p>
+<!--
                         <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+-->
                     </form>
                     <p class="m-t">
                         <small>Online Accounting System &copy; 2018</small>
